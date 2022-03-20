@@ -1,0 +1,28 @@
+<div class="ui center aligned three column doubling grid">
+  <div class="row">
+    <div *ngFor="let die of dice" class="column">
+      <img src="../../assets/dice-images/{{ die.name }}.png" />
+    </div>
+  </div>
+</div>
+
+<div *ngFor="let score of playerScores" class="row">
+  <app-scores
+    [currentPoints]="score.currentPoints"
+    [bonusPoints]="score.bonusPoints"
+    [totalPoints]="score.totalPoints"
+    [sessionScore]="score.sessionScore"
+  ></app-scores>
+</div>
+
+<div class="row mt-15">
+  <div class="ui centered grid">
+    <button class="positive ui button m-5" (click)="rollDice()">New Game</button>
+  </div>
+
+  <div class="ui centered grid">
+    <button class="negative ui button m-5" (click)="resetSession()">
+      Reset Session
+    </button>
+  </div>
+</div>
